@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: factorial
+Version: 0.1
+Summary: Factorial module.
+Home-page: https://www.xunlei.com/courses/596
+Author: Jerry
+Author-email: support@xunlei.com
+License: MIT
+Description-Content-Type: UNKNOWN
+Description: A test module for our book.
+Platform: Linux
