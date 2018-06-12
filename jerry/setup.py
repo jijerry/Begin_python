@@ -2,8 +2,8 @@
 """Factorial project"""
 from setuptools import find_packages, setup
 
-setup(name = 'factorial',   # 项目名称
-    version = '0.1',        # 发布版本
+setup(name = 'jerry',   # 项目名称
+    version = '0.2',        # 发布版本
     description = "Factorial module.",      # 项目介绍
     long_description = "A test module for our book.",   # 项目描述
     platforms = ["Linux"],      # 项目支持平台列表
