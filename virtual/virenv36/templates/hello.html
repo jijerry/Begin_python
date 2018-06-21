@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello from Flask</title>
+</head>
+<body>
+{% if name %}
+<h1> Hello {{name}}!</h1>
+{% else %}
+<h1> Hello world </h1>
+
+{% endif %}
+
+</body>
+</html>
+
+<!--模板中可以使用request，session对象，可以使用函数get_flashed_messages()-->

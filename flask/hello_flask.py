@@ -13,7 +13,7 @@ def index():
     显示可在‘/’访问的index页面
     :return: 
     """
-    return flask.render_template('index.html')
+    return flask.render_template('index.html')      # render_template渲染模板
 
 @APP.route('/hello/<name>/')
 def hello(name):

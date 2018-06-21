@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %} - Hello flask</title>
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='hello.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='hello.css')}}">     <!--给静态文件生成URL，使用特殊的static端点名-->
 </head>
 <body>
 {% block body %}{% endblock %}
