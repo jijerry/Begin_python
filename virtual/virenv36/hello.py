@@ -1,4 +1,5 @@
-from flask import Flask, url_for, render_template
+from flask import Flask, url_for, render_template, request, make_response
+from werkzeug import security
 app = Flask(__name__)
 
 
@@ -21,9 +22,38 @@ def show_post(post_id):
     # 转换器规则将变量转换为特定的数据类型
     return 'Post %d' % post_id
 
-@app.route('/login')
+
+# 请求对象
+@app.route('/login', methods=['POST', 'GET'])
 def login():
-    pass
+    error = None
+    if request.method == 'POST':
+        if valid_login(request.form['username'], request.form['password']):
+            return  log_the_user_in(request.form['username'])
+        else:
+            error = 'invalid username password'
+    else:
+        return render_template('login.html', error=error);
+
+
+# 文件上传
+@app.route('/upload', methods=['POST', 'GET'])
+def upload_file():
+    if request.method == 'POST':
+        f = request.files['the_file']
+        f.save('/var/uploads' + security(f.filename))
+
+
+# 读取cookies
+@app.route('/')
+def index():
+    username = request.cookies.get('username')      #这块使用cookies.get是为了防止字典不存在是报错keyerror，请求对象的cookies属性是一个客户端发送所有的cookies字典
+
+# 存储cookies
+def index():
+    resp = make_response(render_template())
+    resp.set_cookie('username', 'theusername')
+    return resp
 
 # # url_for针对特定的函数构建一个url，接受函数名作为第一个参数,以及关键字参数，关键字参数应用于url变量部分
 # with app.test_request_context():
