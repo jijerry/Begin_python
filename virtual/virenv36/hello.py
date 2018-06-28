@@ -1,4 +1,4 @@
-from flask import Flask, url_for, render_template, request, make_response
+from flask import Flask, url_for, render_template, request, make_response, redirect, abort
 from werkzeug import security
 app = Flask(__name__)
 
@@ -54,6 +54,16 @@ def index():
     resp = make_response(render_template())
     resp.set_cookie('username', 'theusername')
     return resp
+
+# 重定向
+@app.route('/')     # 从主页/重定向到不能访问的/login页面
+def index():
+    return redirect(url_for('login'))
+
+@app.route('/login')
+def login():
+    abort(401)
+    this_is_never_executed()
 
 # # url_for针对特定的函数构建一个url，接受函数名作为第一个参数,以及关键字参数，关键字参数应用于url变量部分
 # with app.test_request_context():
